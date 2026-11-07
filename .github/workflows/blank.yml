@@ -1,14 +1,14 @@
-# ðŸš€ Windows RDP Complete Setup
+# 🚀 Windows RDP Complete Setup
 
-### ðŸ“ File Path in GitHub Repository:
+### 📁 File Path in GitHub Repository:
 `.github/workflows/windows_rdp.yml`
 
 ---
 
-### ðŸ’» Code to Paste Inside `.github/workflows/windows_rdp.yml`:
+### 💻 Code to Paste Inside `.github/workflows/windows_rdp.yml`:
 
 ```yaml
-name: ðŸš€ High-Speed Windows RDP (Official Azure VM via Tailscale)
+name: 🚀 High-Speed Windows RDP (Official Azure VM via Tailscale)
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 360
 
     steps:
-    - name: âš™ï¸ Enable Windows Remote Desktop (RDP) & Configure User
+    - name: ⚙️ Enable Windows Remote Desktop (RDP) & Configure User
       run: |
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
@@ -32,7 +32,7 @@ jobs:
         net user runneradmin "Password123!"
         net localgroup "Remote Desktop Users" runneradmin /add >$null 2>&1
 
-    - name: â¬‡ï¸ Install & Connect Tailscale
+    - name: ⬇️ Install & Connect Tailscale
       run: |
         Invoke-WebRequest -Uri "https://pkgs.tailscale.com/stable/tailscale-setup-latest.exe" -OutFile "tailscale-setup.exe"
         Start-Process -FilePath "tailscale-setup.exe" -ArgumentList "/quiet" -Wait
@@ -43,37 +43,37 @@ jobs:
         
         Write-Host ""
         Write-Host "==================================================================" -ForegroundColor Cyan
-        Write-Host "ðŸŽ‰ AAPKA OFFICIAL WINDOWS SERVER RDP BILKUL READY HAI!" -ForegroundColor Green
+        Write-Host "🎉 AAPKA OFFICIAL WINDOWS SERVER RDP BILKUL READY HAI!" -ForegroundColor Green
         Write-Host "==================================================================" -ForegroundColor Cyan
-        Write-Host "ðŸ–¥ï¸  RDP IP Address : $ip" -ForegroundColor Yellow
-        Write-Host "ðŸ‘¤  Username       : runneradmin" -ForegroundColor White
-        Write-Host "ðŸ”‘  Password       : Password123!" -ForegroundColor White
-        Write-Host "âš¡  Speed          : 1 Gbps+ Direct Peer-to-Peer WireGuard Network" -ForegroundColor Green
-        Write-Host "â±ï¸  Duration       : 6 Hours (Max Limit)" -ForegroundColor Magenta
+        Write-Host "🖥️  RDP IP Address : $ip" -ForegroundColor Yellow
+        Write-Host "👤  Username       : runneradmin" -ForegroundColor White
+        Write-Host "🔑  Password       : Password123!" -ForegroundColor White
+        Write-Host "⚡  Speed          : 1 Gbps+ Direct Peer-to-Peer WireGuard Network" -ForegroundColor Green
+        Write-Host "⏱️  Duration       : 6 Hours (Max Limit)" -ForegroundColor Magenta
         Write-Host "==================================================================" -ForegroundColor Cyan
         Write-Host ""
 
-    - name: â³ Keep-Alive Runner (Up to 6 Hours Active)
+    - name: ⏳ Keep-Alive Runner (Up to 6 Hours Active)
       run: |
         $totalMinutes = 350
         for ($i = 1; $i -le $totalMinutes; $i++) {
             Start-Sleep -Seconds 60
             if ($i % 10 -eq 0) {
-                Write-Host "ðŸŸ¢ Windows RDP Active: $i / $totalMinutes minutes"
+                Write-Host "🟢 Windows RDP Active: $i / $totalMinutes minutes"
             }
         }
 ```
 
 ---
 
-### ðŸ”‘ Default Credentials:
+### 🔑 Default Credentials:
 * **Username:** `runneradmin`
 * **Password:** `Password123!`
 * **IP Address:** GitHub Actions me `Install & Connect Tailscale` step ke andar dikhta hai (e.g. `100.x.x.x`).
 
 ---
 
-### ðŸ”— Direct Useful Links:
+### 🔗 Direct Useful Links:
 1. **GitHub Actions Tab:** https://github.com/workindiammm-lgtm/rdp-/actions
 2. **Tailscale Keys Page:** https://login.tailscale.com/admin/settings/keys
 3. **Tailscale Machines:** https://login.tailscale.com/admin/machines
